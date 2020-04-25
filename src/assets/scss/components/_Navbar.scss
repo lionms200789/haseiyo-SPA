@@ -1,0 +1,131 @@
+.cover {
+  position: absolute;
+  z-index: 10;
+  background: transparent;
+  top: 55px;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: none;
+  &.show {
+    transform: translateX(0);
+    display: block;
+  }
+}
+
+header {
+  height: 55px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(40, 40, 40, 0.1);
+  .index-nav {
+    display: flex;
+    z-index: 100;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    .nav-logo {
+      display: block;
+      @media (max-width: 768px) {
+        margin: 0 auto;
+      }
+    }
+    .navbar-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: unset;
+      .nav-item {
+        padding: 0 10px;
+        margin: 5px 0;
+      }
+      .active {
+        color: #826c61;
+      }
+      @media (max-width: 768px) {
+        flex-direction: column;
+        position: fixed;
+        z-index: 100;
+        width: 50%;
+        background: #fff;
+        box-shadow: 1px 0 0 0 rgba(39, 39, 39, 0.1);
+        top: 55px;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        .nav-item {
+          width: 100%;
+        }
+        &.show {
+          transform: translateX(0);
+          transition: all 0.3s linear;
+        }
+      }
+    }
+    .nav-bars {
+      background-color: unset;
+      display: none;
+      outline: 0;
+      width: 40px;
+      box-shadow: unset;
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}
+
+.sub-menu,
+.user-menu {
+  position: absolute;
+  background-color: #f3f1f2;
+  padding: 5px 15px;
+  display: none;
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 5px;
+    &.toggle {
+      display: block;
+    }
+  }
+  .menu-inner {
+    ul {
+      list-style: none;
+      padding-inline-start: 0;
+      li {
+        text-align: center;
+        margin: 5px 0;
+        @media (max-width: 768px) {
+          text-align: left;
+        }
+        a {
+          color: #5b5b5b;
+          display: block;
+          min-width: 100px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.logo {
+  width: 120px;
+  max-width: unset;
+  height: 55px;
+  margin-right: 20px;
+}
+
+hr {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.nav-item {
+  padding: 0 5px;
+  transition: all 0.35s ease-in-out;
+  position: relative;
+}
