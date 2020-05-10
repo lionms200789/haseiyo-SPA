@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <div class="container">
+    <div class="container set-mt">
       <Alertmsg />
       <router-view></router-view>
       <button class="backtop" @click="backTop">
@@ -44,6 +44,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.set-mt {
+  margin-top: 55px;
+  @media (max-width: 992px) {
+    margin-top: 0;
+  }
+}
+
 .backtop {
   position: fixed;
   display: none;
@@ -52,7 +59,7 @@ export default {
   width: 2rem;
   height: 2rem;
   padding: 0;
-  margin:0;
+  margin: 0;
   background: #826c61;
   border-radius: 50%;
   border: none;

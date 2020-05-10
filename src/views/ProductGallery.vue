@@ -1,7 +1,7 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="row pt-2 pt-md-3">
+    <div class="row py-3">
       <div class="col-12">
         <h2 class="productTitle">{{ productTitle }}</h2>
         <div class="searchResult mb-4" v-if="currentPath.name === 'Search' ">
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="row pt-3">
+    <div class="row">
       <div
         class="noRelatedItem mx-auto text-center"
         v-if="!productType.length && !isLoading"
