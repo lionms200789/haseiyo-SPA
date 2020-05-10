@@ -22,7 +22,7 @@ export default {
   methods: {
     logout() {
       const vm = this;
-      const url = `${process.env.SERVERPATH}/logout`;
+      const url = `${process.env.VUE_APP_SERVERPATH}/logout`;
       vm.$http.post(url).then(response => {
         if (response.data.success) {
           vm.$router.push("/login");
