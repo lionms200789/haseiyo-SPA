@@ -4,41 +4,37 @@
     <div class="text-right mt-3">
       <button class="btn btn-primary" @click="couponModal(true)">建立新優惠券</button>
     </div>
-    <div class="row">
-      <div class="col-md-8 mx-auto">
-        <table class="table mt-4">
-          <thead>
-            <tr>
-              <th width="100">名稱</th>
-              <th width="80">折扣(%)</th>
-              <th width="100">到期日</th>
-              <th width="100">是否啟用</th>
-              <th width="100">編輯</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item ,index) in couponList" :key="index">
-              <td>{{ item.title }}</td>
-              <td>{{ item.percent }} %</td>
-              <td class="text-left">{{ item.due_date }}</td>
-              <td>
-                <span class="text-success" v-if="item.is_enabled">啟用</span>
-                <span v-if="!item.is_enabled">未啟用</span>
-              </td>
-              <td>
-                <button class="btn btn-outline-primary btn-sm" @click="couponModal(false ,item)">編輯</button>
-                <button class="btn btn-outline-primary btn-sm" @click="delCoupons(item.id)">移除</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Pagination
-          :childPagination="pagination"
-          @emitHandler="getCoupons"
-          v-if="pagination.total_pages > 1"
-        />
-      </div>
-    </div>
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th width="100">名稱</th>
+          <th width="80">折扣(%)</th>
+          <th width="100">到期日</th>
+          <th width="100">是否啟用</th>
+          <th width="100">編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item ,index) in couponList" :key="index">
+          <td>{{ item.title }}</td>
+          <td>{{ item.percent }} %</td>
+          <td class="text-left">{{ item.due_date }}</td>
+          <td>
+            <span class="text-success" v-if="item.is_enabled">啟用</span>
+            <span v-if="!item.is_enabled">未啟用</span>
+          </td>
+          <td>
+            <button class="btn btn-outline-primary btn-sm" @click="couponModal(false ,item)">編輯</button>
+            <button class="btn btn-outline-primary btn-sm" @click="delCoupons(item.id)">移除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <Pagination
+      :childPagination="pagination"
+      @emitHandler="getCoupons"
+      v-if="pagination.total_pages > 1"
+    />
     <!--優惠券modal-->
     <div
       class="modal fade"
