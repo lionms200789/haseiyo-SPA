@@ -88,14 +88,6 @@ export default {
       .blur(() => {
         $sub.slideUp();
       });
-    const $user = $(".user-menu");
-    $("a[data-toggle='toggleuser']")
-      .click(() => {
-        $user.slideToggle("fast");
-      })
-      .blur(() => {
-        $user.slideUp();
-      });
   }
 };
 </script>

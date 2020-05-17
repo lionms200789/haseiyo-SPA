@@ -38,7 +38,7 @@
                 </select>
               </div>
               <div class="col-6 py-3">
-                <div class="btn-group border">
+                <div class="btn-group border qty-counter">
                   <button type="button" class="btn btn-light rounded-0" @click="minuspcs">-</button>
                   <input type="text" class="input-qty" readonly v-model="product.num" />
                   <button type="button" class="btn btn-light rounded-0" @click="addpcs">+</button>

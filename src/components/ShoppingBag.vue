@@ -74,7 +74,6 @@ export default {
   },
   data() {
     return {
-      bag: {},
       cartCounter: "",
       keyword: "",
       modalstatus: false,
@@ -86,7 +85,6 @@ export default {
       const vm = this;
       const url = `${process.env.VUE_APP_SERVERPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       vm.$http.get(url).then(response => {
-        vm.bag = response.data.data;
         vm.cartCounter = response.data.data.carts.length;
       });
     },

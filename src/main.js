@@ -12,7 +12,9 @@ import currencyFilter from "./filters/currency";
 import dateFilter from "./filters/date";
 import "./bus";
 Vue.use(VueAxios, axios);
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+  events: "input|blur"
+});
 axios.defaults.withCredentials = true;
 Vue.config.productionTip = false;
 
