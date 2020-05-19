@@ -165,9 +165,8 @@ export default {
     });
   },
   mounted() {
-    const vm = this;
     if (localStorage.wishlist) {
-      vm.wishlist = JSON.parse(localStorage.wishlist) || [];
+      this.wishlist = JSON.parse(localStorage.wishlist) || [];
     }
   },
   watch: {

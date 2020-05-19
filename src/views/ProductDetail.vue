@@ -41,7 +41,7 @@
                 <div class="btn-group border qty-counter">
                   <button type="button" class="btn btn-light rounded-0" @click="minuspcs">-</button>
                   <input type="text" class="input-qty" readonly v-model="product.num" />
-                  <button type="button" class="btn btn-light rounded-0" @click="addpcs">+</button>
+                  <button type="button" class="btn btn-light rounded-0" @click=" product.num++ ">+</button>
                 </div>
               </div>
               <div class="col-12 mb-4">
@@ -49,7 +49,7 @@
                   href="#"
                   class="btn btn-dark rounded-0 w-100"
                   @click.prevent="addtoCart(product.id, product.num, product.size)"
-                >{{ ifselected }}</a>
+                >{{ this.product.size === "請選擇尺寸" ? "尚未選擇尺寸" : "加入購物車" }}</a>
               </div>
             </div>
             <div class="row mt-4">
@@ -168,14 +168,9 @@ export default {
         vm.$set(vm.product, "size", "請選擇尺寸");
       });
     },
-    addpcs() {
-      const vm = this;
-      vm.product.num++;
-    },
     minuspcs() {
-      const vm = this;
-      if (vm.product.num > 1) {
-        vm.product.num--;
+      if (this.product.num > 1) {
+        this.product.num--;
       }
     },
     addtoCart(id, qty = 1, size) {
@@ -198,13 +193,6 @@ export default {
     }
   },
   computed: {
-    ifselected() {
-      if (this.product.size === "請選擇尺寸") {
-        return "尚未選擇尺寸";
-      } else {
-        return "加入購物車";
-      }
-    },
     categoryCompute() {
       let type = this.product.category;
       switch (type) {

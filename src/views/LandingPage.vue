@@ -163,10 +163,6 @@ export default {
     };
   },
   methods: {
-    showCouponModal() {
-      const vm = this;
-      vm.couponstatus = true;
-    },
     subscribe() {
       const vm = this;
       vm.$validator.validate().then(valid => {
@@ -195,7 +191,10 @@ export default {
     $(".carousel").carousel({
       interval: 2500
     });
-    window.setTimeout(this.showCouponModal, 1500);
+    window.setTimeout(()=>{
+      const vm = this;
+      vm.couponstatus = true;
+    }, 2500);
     window.addEventListener("scroll", this.scrollHandler);
   },
   beforeDestroy() {
